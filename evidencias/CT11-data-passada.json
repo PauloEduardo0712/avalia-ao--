@@ -1,0 +1,8 @@
+{
+  "id": "CT11",
+  "title": "Data passada",
+  "expected": "400",
+  "actual": "HTTP 400; {\"erro\":\"A data não pode estar no passado\"}",
+  "status": "Passou",
+  "evidence": "CT11-data-passada.json"
+}

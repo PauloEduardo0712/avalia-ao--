@@ -1,0 +1,8 @@
+{
+  "id": "CT15",
+  "title": "Horários adjacentes",
+  "expected": "201",
+  "actual": "HTTP 201; {\"id\":10,\"labId\":1,\"data\":\"2026-10-22\",\"inicio\":\"10:00\",\"fim\":\"12:00\",\"turma\":\"QA-ADJACENTE\",\"alunos\":10,\"dono\":\"instrutor1@senac.br\"}",
+  "status": "Passou",
+  "evidence": "CT15-adjacente.json"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "CT18",
+  "title": "Instrutor cancela reserva alheia",
+  "expected": "403",
+  "actual": "HTTP 200; {\"mensagem\":\"Reserva cancelada\"}",
+  "status": "Falhou",
+  "evidence": "CT18-cancelamento-alheio.json"
+}

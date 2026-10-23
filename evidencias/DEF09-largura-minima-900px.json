@@ -1,0 +1,10 @@
+{
+  "defeito": "DEF09",
+  "caso": "CT20",
+  "tipo": "Inspeção estática de CSS; confirmar rolagem horizontal em navegador com viewport de 360 px.",
+  "arquivoInspecionado": "sistema/public/style.css",
+  "linha": 3,
+  "trecho": ".container { min-width: 900px; max-width: 1000px; ... }",
+  "esperado": "Layout funciona com viewport a partir de 360 px sem rolagem horizontal.",
+  "conclusao": "A largura mínima declarada excede a viewport mínima exigida."
+}

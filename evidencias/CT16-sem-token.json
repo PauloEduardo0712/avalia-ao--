@@ -1,0 +1,8 @@
+{
+  "id": "CT16",
+  "title": "API sem autenticação",
+  "expected": "401",
+  "actual": "HTTP 401; {\"erro\":\"Faça login para continuar\"}",
+  "status": "Passou",
+  "evidence": "CT16-sem-token.json"
+}

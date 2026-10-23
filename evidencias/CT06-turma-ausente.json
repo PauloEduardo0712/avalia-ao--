@@ -1,0 +1,8 @@
+{
+  "id": "CT06",
+  "title": "Reserva sem turma",
+  "expected": "400, nunca 500",
+  "actual": "HTTP 500; {\"erro\":\"Erro interno do servidor\"}",
+  "status": "Falhou",
+  "evidence": "CT06-turma-ausente.json"
+}

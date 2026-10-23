@@ -1,0 +1,7 @@
+{
+  "name": "labreserva",
+  "version": "1.4.0",
+  "description": "Sistema de reserva de laboratórios (Missão QA · Aula 17)",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" }
+}

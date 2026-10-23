@@ -1,0 +1,106 @@
+name: "Registro de defeito"
+description: "Use para registrar um defeito encontrado nos testes."
+title: "[DEFEITO] <tela ou rota>: <o que acontece> <quando>"
+labels: ["defeito"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Preencha todos os campos. Outra pessoa precisa conseguir reproduzir o defeito só lendo este registro.
+
+  - type: input
+    id: requisito
+    attributes:
+      label: Requisito relacionado
+      description: Qual requisito ou regra não foi atendido?
+      placeholder: "RN03 · Cupom de desconto"
+    validations:
+      required: true
+
+  - type: textarea
+    id: ambiente
+    attributes:
+      label: Ambiente
+      description: Versão do sistema, navegador, sistema operacional, usuário usado no teste.
+      placeholder: |
+        Versão: 2.3.0
+        Navegador: Chrome 129 · Windows 11
+        Usuário: cliente.teste@email.com (perfil Cliente)
+    validations:
+      required: true
+
+  - type: textarea
+    id: precondicoes
+    attributes:
+      label: Pré-condições
+      description: O que precisa existir antes de começar?
+      placeholder: "Estar logado como cliente. Ter 1 produto de R$ 100,00 no carrinho."
+
+  - type: textarea
+    id: passos
+    attributes:
+      label: Passos para reproduzir
+      description: Numerados, um por linha, com os dados exatos.
+      placeholder: |
+        1. Abrir o carrinho
+        2. Digitar o cupom DESCONTO10
+        3. Clicar em "Aplicar"
+    validations:
+      required: true
+
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Resultado esperado
+      description: O que o requisito diz que deveria acontecer.
+    validations:
+      required: true
+
+  - type: textarea
+    id: obtido
+    attributes:
+      label: Resultado obtido
+      description: O que aconteceu de fato. Copie mensagens e códigos exatamente.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severidade
+    attributes:
+      label: Severidade
+      description: O tamanho do impacto no sistema e no usuário.
+      options:
+        - "Crítica · dado errado, acesso indevido ou função principal parada"
+        - "Alta · função importante falha, sem contorno"
+        - "Média · falha com contorno ou em requisito não funcional"
+        - "Baixa · incômodo visual ou de texto"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: prioridade
+    attributes:
+      label: Prioridade sugerida
+      description: Com que urgência corrigir. A decisão final é de quem gerencia o projeto.
+      options:
+        - "Urgente · corrigir antes de qualquer entrega"
+        - "Alta · próxima versão"
+        - "Média · quando houver espaço"
+        - "Baixa · pode esperar"
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidencias
+    attributes:
+      label: Evidências
+      description: Arraste prints, cole respostas do Postman ou anexe relatórios.
+    validations:
+      required: true
+
+  - type: input
+    id: frequencia
+    attributes:
+      label: Frequência
+      description: Acontece sempre? Às vezes? Quantas vezes em quantas tentativas?
+      placeholder: "Sempre (3 de 3 tentativas)"

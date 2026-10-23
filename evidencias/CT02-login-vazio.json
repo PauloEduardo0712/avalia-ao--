@@ -1,0 +1,8 @@
+{
+  "id": "CT02",
+  "title": "Campos de login vazios",
+  "expected": "400 com mensagem de campos obrigatórios",
+  "actual": "HTTP 400; {\"erro\":\"Informe o e-mail e a senha\"}",
+  "status": "Passou",
+  "evidence": "CT02-login-vazio.json"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "CT08",
+  "title": "Duração de quatro horas",
+  "expected": "201",
+  "actual": "HTTP 201; {\"id\":6,\"labId\":1,\"data\":\"2026-10-26\",\"inicio\":\"08:00\",\"fim\":\"12:00\",\"turma\":\"QA-4H\",\"alunos\":20,\"dono\":\"instrutor1@senac.br\"}",
+  "status": "Passou",
+  "evidence": "CT08-duracao-4h.json"
+}

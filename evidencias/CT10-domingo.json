@@ -1,0 +1,8 @@
+{
+  "id": "CT10",
+  "title": "Reserva no domingo",
+  "expected": "400",
+  "actual": "HTTP 400; {\"erro\":\"Reservas só de segunda a sexta-feira\"}",
+  "status": "Passou",
+  "evidence": "CT10-domingo.json"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "CT07",
+  "title": "Capacidade acima do limite",
+  "expected": "400 para 21 alunos no laboratório 1",
+  "actual": "HTTP 201; {\"id\":5,\"labId\":1,\"data\":\"2026-10-26\",\"inicio\":\"08:00\",\"fim\":\"09:00\",\"turma\":\"QA-CAP-21\",\"alunos\":21,\"dono\":\"instrutor1@senac.br\"}",
+  "status": "Falhou",
+  "evidence": "CT07-capacidade-21.json"
+}

@@ -1,0 +1,8 @@
+{
+  "id": "CT14",
+  "title": "Novo horário envolve reservas existentes",
+  "expected": "409",
+  "actual": "HTTP 201; {\"id\":9,\"labId\":1,\"data\":\"2026-10-22\",\"inicio\":\"07:00\",\"fim\":\"11:00\",\"turma\":\"QA-ENVOLVE\",\"alunos\":10,\"dono\":\"instrutor1@senac.br\"}",
+  "status": "Falhou",
+  "evidence": "CT14-envolve-reservas.json"
+}

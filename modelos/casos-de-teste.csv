@@ -1,0 +1,21 @@
+ID;Requisito;Técnica;Título do caso;Pré-condição;Passos;Dados de entrada;Resultado esperado;Prioridade
+CT01;RF01;Partição de equivalência;Login válido;Sistema ligado;Enviar POST /api/login;instrutor1@senac.br / 123456;HTTP 200 e nome Ana Instrutora;Alta
+CT02;RF01;Valor-limite;Login com campos vazios;Sistema ligado;Enviar POST /api/login com campos vazios;email vazio e senha vazia;HTTP 400 com mensagem clara de campos obrigatórios;Alta
+CT03;RF01;Partição de equivalência;Login com senha incorreta;Sistema ligado;Enviar POST /api/login;instrutor1@senac.br / senha errada;HTTP 401 e mensagem E-mail ou senha incorretos;Alta
+CT04;RF02;Transição de estado;Sair do sistema;Usuário autenticado na interface;Clicar Sair e observar tela de login;Sessão válida;Sessão encerrada e formulário de login vazio;Média
+CT05;RF03;Caso de uso / fluxo;Criar reserva válida;Usuário autenticado;Preencher formulário e confirmar;Lab 1, dia útil futuro, 08:00-12:00, turma QA, 20 alunos;HTTP 201 e confirmação com número data e horário;Alta
+CT06;RF03 / RF07;Teste de API;Reserva sem turma;Usuário autenticado;Enviar POST /api/reservas omitindo turma;labId 1, data futura, 08:00-09:00, alunos 10;HTTP 400 com erro claro e nunca 500;Alta
+CT07;RN01;Valor-limite;Exceder capacidade;Usuário autenticado;Enviar reserva para laboratório 1 com 21 alunos;Lab 1, dia útil futuro, 08:00-09:00, 21 alunos;HTTP 400 informando limite de 20;Alta
+CT08;RN03;Valor-limite;Duração máxima permitida;Usuário autenticado;Enviar reserva com duração de quatro horas;Lab 1, dia útil futuro, 08:00-12:00, 20 alunos;HTTP 201;Alta
+CT09;RN02;Partição de equivalência;Reservar no sábado;Usuário autenticado;Enviar reserva em sábado futuro;Lab 1, sábado futuro, 08:00-09:00, turma QA, 10 alunos;HTTP 400 e mensagem de dias permitidos;Alta
+CT10;RN02;Partição de equivalência;Reservar no domingo;Usuário autenticado;Enviar reserva em domingo futuro;Lab 1, domingo futuro, 08:00-09:00, turma QA, 10 alunos;HTTP 400;Alta
+CT11;RN02 / RF07;Partição de equivalência;Validar data da reserva;Usuário autenticado;Enviar uma data passada e uma data inexistente;Lab 1, ontem e 2026-10-33, 08:00-09:00, turma QA, 10 alunos;HTTP 400 para ambas as datas;Alta
+CT12;RN03;Valor-limite;Fim igual ao início;Usuário autenticado;Enviar reserva com horários iguais;Lab 1, dia útil futuro, 08:00-08:00, turma QA, 10 alunos;HTTP 400, fim deve ser depois do início;Alta
+CT13;RN04;Partição de equivalência;Sobreposição parcial;Usuário autenticado e reserva existente;Enviar reserva que cruza horário existente;Mesmo laboratório e data, 09:00-11:00;HTTP 409 conflito;Alta
+CT14;RN04;Valor-limite;Novo horário envolve reserva existente;Usuário autenticado e reserva existente;Enviar reserva que começa antes e termina depois da existente;Mesmo laboratório e data, 07:00-11:00;HTTP 409 conflito;Alta
+CT15;RN04;Valor-limite;Horários adjacentes;Usuário autenticado e reserva 08:00-10:00 existente;Enviar segunda reserva 10:00-12:00;Mesmo laboratório e data, turma QA, 10 alunos;HTTP 201, horários que encostam são permitidos;Média
+CT16;RF07;Teste de API;Acesso sem autenticação;Sistema ligado;Enviar GET /api/laboratorios sem Authorization;Sem token;HTTP 401;Alta
+CT17;RN05;Caso de uso / fluxo;Instrutor cancela reserva própria;Reserva criada pelo próprio instrutor;Enviar DELETE da reserva própria;Token do proprietário e ID existente;HTTP 200 e reserva removida;Alta
+CT18;RN05 / RF07;Teste de API;Instrutor tenta cancelar reserva alheia;Reserva pertence a outro instrutor;Enviar DELETE da reserva alheia;Token de instrutor não proprietário;HTTP 403 e reserva permanece;Alta
+CT19;RF05;Caso de uso / fluxo;Lista atualiza após cancelamento;Usuário autenticado com reserva própria;Cancelar pela aba Minhas reservas;Reserva própria listada;Reserva removida da lista imediatamente;Média
+CT20;RNF04;Teste de carga;Desempenho com 20 usuários simultâneos;Servidor ligado e token válido;Executar 20 GET concorrentes nas duas rotas;GET /api/laboratorios e GET /api/reservas;P90 até 500 ms e taxa de erro até 1%;Alta

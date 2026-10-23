@@ -1,0 +1,21 @@
+ID do caso;Executado por;Data;Resultado obtido;Situação (Passou/Falhou/Bloqueado);Evidência (arquivo);Defeito (ID)
+CT01;Codex QA;21/10/2026;HTTP 200 e Ana Instrutora;Passou;evidencias/CT01-login-api.json;
+CT02;Codex QA;21/10/2026;HTTP 400 e mensagem de campos obrigatórios;Passou;evidencias/CT02-login-vazio.json;
+CT03;Codex QA;21/10/2026;HTTP 401 e mensagem de credenciais incorretas;Passou;evidencias/CT03-login-incorreto.json;
+CT04;;21/10/2026;Pendente de teste de interface;Bloqueado;;
+CT05;;21/10/2026;Pendente de teste de interface;Bloqueado;;
+CT06;Codex QA;21/10/2026;HTTP 500 em vez de 400;Falhou;evidencias/CT06-turma-ausente.json;DEF01
+CT07;Codex QA;21/10/2026;HTTP 201 aceitou 21 alunos no laboratório com capacidade 20;Falhou;evidencias/CT07-capacidade-21.json;DEF02
+CT08;Codex QA;21/10/2026;HTTP 201 para reserva de quatro horas;Passou;evidencias/CT08-duracao-4h.json;
+CT09;Codex QA;21/10/2026;HTTP 201 aceitou reserva no sábado;Falhou;evidencias/CT09-sabado.json;DEF03
+CT10;Codex QA;21/10/2026;HTTP 400 rejeitou reserva no domingo;Passou;evidencias/CT10-domingo.json;
+CT11;Codex QA;21/10/2026;HTTP 400 rejeitou data passada, mas HTTP 201 aceitou a data inexistente 2026-10-33;Falhou;evidencias/CT11-data-passada.json + evidencias/CT11-data-invalida.json;DEF12
+CT12;Codex QA;21/10/2026;HTTP 201 aceitou início e fim iguais;Falhou;evidencias/CT12-fim-igual-inicio.json;DEF04
+CT13;Codex QA;21/10/2026;HTTP 409 para sobreposição parcial;Passou;evidencias/CT13-sobreposicao.json;
+CT14;Codex QA;21/10/2026;HTTP 201 aceitou intervalo que envolve reserva existente;Falhou;evidencias/CT14-envolve-reservas.json;DEF05
+CT15;Codex QA;21/10/2026;HTTP 201 aceitou horários adjacentes;Passou;evidencias/CT15-adjacente.json;
+CT16;Codex QA;21/10/2026;HTTP 401 sem token;Passou;evidencias/CT16-sem-token.json;
+CT17;Codex QA;21/10/2026;HTTP 200 cancelou reserva própria;Passou;evidencias/CT17-cancelamento-proprio.json;
+CT18;Codex QA;21/10/2026;HTTP 200 cancelou reserva de outro instrutor em vez de 403;Falhou;evidencias/CT18-cancelamento-alheio.json;DEF06
+CT19;;21/10/2026;Pendente de teste visual da atualização da lista;Bloqueado;;DEF07
+CT20;Codex QA (harness Node);21/10/2026;20 requisições concorrentes: p90 laboratórios 57,04 ms, p90 reservas 756,03 ms, erros HTTP 0%; Falhou;evidencias/relatorio-execucao-api.json;DEF08

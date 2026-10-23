@@ -1,0 +1,8 @@
+{
+  "id": "CT13",
+  "title": "Sobreposição parcial",
+  "expected": "409",
+  "actual": "HTTP 409; {\"erro\":\"Erro 409: CONFLICT_OVERLAP\"}",
+  "status": "Passou",
+  "evidence": "CT13-sobreposicao.json"
+}

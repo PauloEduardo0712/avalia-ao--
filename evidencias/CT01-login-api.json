@@ -1,0 +1,8 @@
+{
+  "id": "CT01",
+  "title": "Login válido",
+  "expected": "200 e Ana Instrutora",
+  "actual": "HTTP 200; {\"token\":\"tk-instrutor1@senac.br\",\"nome\":\"Ana Instrutora\",\"perfil\":\"instrutor\",\"email\":\"instrutor1@senac.br\"}",
+  "status": "Passou",
+  "evidence": "CT01-login-api.json"
+}

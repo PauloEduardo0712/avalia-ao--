@@ -1,0 +1,33 @@
+{
+  "caso": "CT11 - Data de calendário inexistente",
+  "executadoEm": "2026-10-21T19:08:18.249Z",
+  "metodo": "POST",
+  "endpoint": "/api/reservas",
+  "requisicao": {
+    "labId": 1,
+    "data": "2026-10-33",
+    "inicio": "08:00",
+    "fim": "09:00",
+    "turma": "QA-DATA-INEXISTENTE",
+    "alunos": 10
+  },
+  "esperado": {
+    "status": 400,
+    "descricao": "Rejeitar data inexistente."
+  },
+  "obtido": {
+    "status": 201,
+    "body": {
+      "id": 5,
+      "labId": 1,
+      "data": "2026-10-33",
+      "inicio": "08:00",
+      "fim": "09:00",
+      "turma": "QA-DATA-INEXISTENTE",
+      "alunos": 10,
+      "dono": "instrutor1@senac.br"
+    }
+  },
+  "resultado": "Falhou",
+  "observacao": "Evidência de resposta HTTP capturada diretamente da API local."
+}

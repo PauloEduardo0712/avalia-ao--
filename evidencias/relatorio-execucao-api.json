@@ -1,0 +1,206 @@
+{
+  "date": "2026-10-21T18:14:37.518Z",
+  "login": {
+    "status": 200,
+    "data": {
+      "token": "tk-instrutor1@senac.br",
+      "nome": "Ana Instrutora",
+      "perfil": "instrutor",
+      "email": "instrutor1@senac.br"
+    },
+    "elapsedMs": 59.72
+  },
+  "records": [
+    {
+      "id": "CT01",
+      "title": "Login válido",
+      "expected": "200 e Ana Instrutora",
+      "actual": "HTTP 200; {\"token\":\"tk-instrutor1@senac.br\",\"nome\":\"Ana Instrutora\",\"perfil\":\"instrutor\",\"email\":\"instrutor1@senac.br\"}",
+      "status": "Passou",
+      "evidence": "CT01-login-api.json"
+    },
+    {
+      "id": "CT02",
+      "title": "Campos de login vazios",
+      "expected": "400 com mensagem de campos obrigatórios",
+      "actual": "HTTP 400; {\"erro\":\"Informe o e-mail e a senha\"}",
+      "status": "Passou",
+      "evidence": "CT02-login-vazio.json"
+    },
+    {
+      "id": "CT03",
+      "title": "Senha incorreta",
+      "expected": "401 e mensagem de credenciais incorretas",
+      "actual": "HTTP 401; {\"erro\":\"E-mail ou senha incorretos\"}",
+      "status": "Passou",
+      "evidence": "CT03-login-incorreto.json"
+    },
+    {
+      "id": "CT16",
+      "title": "API sem autenticação",
+      "expected": "401",
+      "actual": "HTTP 401; {\"erro\":\"Faça login para continuar\"}",
+      "status": "Passou",
+      "evidence": "CT16-sem-token.json"
+    },
+    {
+      "id": "CT06",
+      "title": "Reserva sem turma",
+      "expected": "400, nunca 500",
+      "actual": "HTTP 500; {\"erro\":\"Erro interno do servidor\"}",
+      "status": "Falhou",
+      "evidence": "CT06-turma-ausente.json"
+    },
+    {
+      "id": "CT07",
+      "title": "Capacidade acima do limite",
+      "expected": "400 para 21 alunos no laboratório 1",
+      "actual": "HTTP 201; {\"id\":5,\"labId\":1,\"data\":\"2026-10-26\",\"inicio\":\"08:00\",\"fim\":\"09:00\",\"turma\":\"QA-CAP-21\",\"alunos\":21,\"dono\":\"instrutor1@senac.br\"}",
+      "status": "Falhou",
+      "evidence": "CT07-capacidade-21.json"
+    },
+    {
+      "id": "CT08",
+      "title": "Duração de quatro horas",
+      "expected": "201",
+      "actual": "HTTP 201; {\"id\":6,\"labId\":1,\"data\":\"2026-10-26\",\"inicio\":\"08:00\",\"fim\":\"12:00\",\"turma\":\"QA-4H\",\"alunos\":20,\"dono\":\"instrutor1@senac.br\"}",
+      "status": "Passou",
+      "evidence": "CT08-duracao-4h.json"
+    },
+    {
+      "id": "CT09",
+      "title": "Reserva no sábado",
+      "expected": "400, apenas segunda a sexta",
+      "actual": "HTTP 201; {\"id\":7,\"labId\":1,\"data\":\"2026-10-24\",\"inicio\":\"08:00\",\"fim\":\"09:00\",\"turma\":\"QA-SAB\",\"alunos\":10,\"dono\":\"instrutor1@senac.br\"}",
+      "status": "Falhou",
+      "evidence": "CT09-sabado.json"
+    },
+    {
+      "id": "CT10",
+      "title": "Reserva no domingo",
+      "expected": "400",
+      "actual": "HTTP 400; {\"erro\":\"Reservas só de segunda a sexta-feira\"}",
+      "status": "Passou",
+      "evidence": "CT10-domingo.json"
+    },
+    {
+      "id": "CT11",
+      "title": "Data passada",
+      "expected": "400",
+      "actual": "HTTP 400; {\"erro\":\"A data não pode estar no passado\"}",
+      "status": "Passou",
+      "evidence": "CT11-data-passada.json"
+    },
+    {
+      "id": "CT12",
+      "title": "Horário de duração zero",
+      "expected": "400",
+      "actual": "HTTP 201; {\"id\":8,\"labId\":1,\"data\":\"2026-10-27\",\"inicio\":\"08:00\",\"fim\":\"08:00\",\"turma\":\"QA-ZERO\",\"alunos\":10,\"dono\":\"instrutor1@senac.br\"}",
+      "status": "Falhou",
+      "evidence": "CT12-fim-igual-inicio.json"
+    },
+    {
+      "id": "CT13",
+      "title": "Sobreposição parcial",
+      "expected": "409",
+      "actual": "HTTP 409; {\"erro\":\"Erro 409: CONFLICT_OVERLAP\"}",
+      "status": "Passou",
+      "evidence": "CT13-sobreposicao.json"
+    },
+    {
+      "id": "CT14",
+      "title": "Novo horário envolve reservas existentes",
+      "expected": "409",
+      "actual": "HTTP 201; {\"id\":9,\"labId\":1,\"data\":\"2026-10-22\",\"inicio\":\"07:00\",\"fim\":\"11:00\",\"turma\":\"QA-ENVOLVE\",\"alunos\":10,\"dono\":\"instrutor1@senac.br\"}",
+      "status": "Falhou",
+      "evidence": "CT14-envolve-reservas.json"
+    },
+    {
+      "id": "CT15",
+      "title": "Horários adjacentes",
+      "expected": "201",
+      "actual": "HTTP 201; {\"id\":10,\"labId\":1,\"data\":\"2026-10-22\",\"inicio\":\"10:00\",\"fim\":\"12:00\",\"turma\":\"QA-ADJACENTE\",\"alunos\":10,\"dono\":\"instrutor1@senac.br\"}",
+      "status": "Passou",
+      "evidence": "CT15-adjacente.json"
+    },
+    {
+      "id": "CT18",
+      "title": "Instrutor cancela reserva alheia",
+      "expected": "403",
+      "actual": "HTTP 200; {\"mensagem\":\"Reserva cancelada\"}",
+      "status": "Falhou",
+      "evidence": "CT18-cancelamento-alheio.json"
+    },
+    {
+      "id": "CT17",
+      "title": "Instrutor cancela reserva própria",
+      "expected": "200",
+      "actual": "HTTP 200; {\"mensagem\":\"Reserva cancelada\"}",
+      "status": "Passou",
+      "evidence": "CT17-cancelamento-proprio.json"
+    }
+  ],
+  "load": {
+    "users": 20,
+    "labs": {
+      "p90Ms": 57.04,
+      "errors": 0,
+      "samplesMs": [
+        31.39,
+        56.66,
+        56.69,
+        56.69,
+        56.73,
+        56.73,
+        56.76,
+        56.79,
+        56.85,
+        56.87,
+        56.88,
+        56.88,
+        56.89,
+        56.91,
+        56.97,
+        56.98,
+        57.02,
+        57.04,
+        57.14,
+        57.15
+      ]
+    },
+    "reservations": {
+      "p90Ms": 756.03,
+      "errors": 0,
+      "samplesMs": [
+        77.55,
+        118.26,
+        158.57,
+        204.53,
+        237.79,
+        277.4,
+        317.21,
+        357.52,
+        402.93,
+        436.71,
+        478.01,
+        522.96,
+        557.08,
+        596.63,
+        636.4,
+        676.86,
+        716.51,
+        756.03,
+        797.09,
+        835.91
+      ]
+    },
+    "note": "Amostra única de 20 requisições concorrentes pelo harness Node; não substitui relatório JMeter"
+  },
+  "manualPending": [
+    "CT04 logout pela interface",
+    "CT05 fluxo de reserva pela interface",
+    "CT19 atualização visual de Minhas reservas após cancelar",
+    "CT20 viewport 360px, labels e contraste",
+    "JMeter p90 individual e taxa de erros"
+  ]
+}

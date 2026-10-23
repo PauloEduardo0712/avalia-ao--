@@ -1,0 +1,10 @@
+{
+  "defeito": "DEF10",
+  "caso": "CT20",
+  "tipo": "Inspeção estática de HTML; confirmar nome acessível com leitor de tela/DevTools.",
+  "arquivoInspecionado": "sistema/public/index.html",
+  "linha": 52,
+  "trecho": "<input type=\"number\" id=\"r-alunos\" ... placeholder=\"Nº de alunos\" min=\"1\">",
+  "esperado": "Campo com rótulo visível ligado ao input.",
+  "conclusao": "O input não tem elemento label associado; placeholder sozinho não é rótulo visível persistente."
+}

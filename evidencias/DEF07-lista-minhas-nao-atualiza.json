@@ -1,0 +1,10 @@
+{
+  "defeito": "DEF07",
+  "caso": "CT19",
+  "tipo": "Inspeção estática do front-end; reproduzir visualmente no navegador para confirmação final.",
+  "arquivoInspecionado": "sistema/public/app.js",
+  "linhas": "102-104",
+  "trecho": "No sucesso do DELETE, o handler chama mensagem('msg-minhas', 'Reserva cancelada.', 'ok'), sem chamar carregarMinhas() nem remover o item da lista.",
+  "esperado": "A reserva desaparece imediatamente da lista Minhas reservas.",
+  "conclusao": "O código não atualiza a lista após cancelamento."
+}

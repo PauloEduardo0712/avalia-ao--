@@ -1,0 +1,8 @@
+{
+  "id": "CT09",
+  "title": "Reserva no sábado",
+  "expected": "400, apenas segunda a sexta",
+  "actual": "HTTP 201; {\"id\":7,\"labId\":1,\"data\":\"2026-10-24\",\"inicio\":\"08:00\",\"fim\":\"09:00\",\"turma\":\"QA-SAB\",\"alunos\":10,\"dono\":\"instrutor1@senac.br\"}",
+  "status": "Falhou",
+  "evidence": "CT09-sabado.json"
+}

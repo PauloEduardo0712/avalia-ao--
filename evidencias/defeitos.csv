@@ -1,0 +1,13 @@
+ID do defeito;Caso;Título do defeito;Requisito;Resultado esperado;Resultado observado;Severidade;Evidência;Situação
+DEF01;CT06;Campo turma ausente provoca erro interno;RF07;HTTP 400 para dados inválidos;HTTP 500 quando turma não é enviada;Alta;CT06-turma-ausente.json;Reproduzido
+DEF02;CT07;Capacidade permite um aluno acima do máximo;RN01;Lab 1 rejeita mais de 20 alunos;HTTP 201 aceitou 21 alunos;Alta;CT07-capacidade-21.json;Reproduzido
+DEF03;CT09;Sistema aceita reserva no sábado;RN02;Aceitar somente de segunda a sexta;HTTP 201 aceitou sábado;Alta;CT09-sabado.json;Reproduzido
+DEF04;CT12;Sistema aceita reserva com início igual ao fim;RN03;Fim posterior ao início;HTTP 201 aceitou 08:00-08:00;Alta;CT12-fim-igual-inicio.json;Reproduzido
+DEF05;CT14;Verificação deixa passar intervalo que envolve reserva;RN04;Rejeitar qualquer sobreposição;HTTP 201 aceitou 07:00-11:00 sobre 08:00-10:00;Alta;CT14-envolve-reservas.json;Reproduzido
+DEF06;CT18;Instrutor cancela reserva de outro instrutor;RN05 / RF07;HTTP 403 sem permissão;HTTP 200 removeu reserva alheia;Alta;CT18-cancelamento-alheio.json;Reproduzido
+DEF07;CT19;Lista de minhas reservas não é atualizada após cancelamento;RF05;Reserva some imediatamente da lista;Código do front não recarrega a lista após DELETE;Média;DEF07-lista-minhas-nao-atualiza.json;Pendente reprodução na interface
+DEF08;CT20;P90 de GET reservas acima de 500 ms com 20 chamadas concorrentes;RNF04;P90 máximo de 500 ms e erro máximo de 1%;Medição Node: 756,03 ms e 0 erros;Alta;evidencias/relatorio-execucao-api.json;Medição exploratória
+DEF09;CT20;Tela tem largura mínima fixa de 900 px;RNF03;Funcionar a partir de 360 px sem rolagem horizontal;CSS define min-width de 900 px no container;Média;DEF09-largura-minima-900px.json;Pendente verificação no navegador
+DEF10;CT20;Campo de número de alunos não tem rótulo associado;RNF02;Todo campo deve ter rótulo visível;HTML apresenta placeholder sem label para r-alunos;Média;DEF10-campo-alunos-sem-label.json;Pendente verificação assistiva
+DEF11;CT13;Mensagem de conflito mostra código técnico;RNF01;Mensagem clara em português sem código técnico;Resposta inclui CONFLICT_OVERLAP;Média;CT13-sobreposicao.json;Reproduzido
+DEF12;CT11;API aceita data de calendário inexistente;RN02 / RF07;Rejeitar data inexistente com HTTP 400;HTTP 201 aceitou 2026-10-33;Alta;CT11-data-invalida.json;Reproduzido

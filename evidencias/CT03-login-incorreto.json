@@ -1,0 +1,8 @@
+{
+  "id": "CT03",
+  "title": "Senha incorreta",
+  "expected": "401 e mensagem de credenciais incorretas",
+  "actual": "HTTP 401; {\"erro\":\"E-mail ou senha incorretos\"}",
+  "status": "Passou",
+  "evidence": "CT03-login-incorreto.json"
+}

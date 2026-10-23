@@ -1,0 +1,8 @@
+{
+  "id": "CT12",
+  "title": "Horário de duração zero",
+  "expected": "400",
+  "actual": "HTTP 201; {\"id\":8,\"labId\":1,\"data\":\"2026-10-27\",\"inicio\":\"08:00\",\"fim\":\"08:00\",\"turma\":\"QA-ZERO\",\"alunos\":10,\"dono\":\"instrutor1@senac.br\"}",
+  "status": "Falhou",
+  "evidence": "CT12-fim-igual-inicio.json"
+}
